@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+ <link rel="stylesheet" href="/css/gallery/lomba17an.css">
+</head>
+<body>
+  <!-- navbar -->
+  <header class="header">
+    <div class="container-navbar">
+        <div class="row alc jcb">
+            <div class="logo">
+                <a href="#">X PPLG 1</a>
+            </div>
+
+            <button type="button" class="nav-toggler">
+                <span></span>
+            </button>
+
+            <nav class="nav">
+                <ul>
+                  <li><a href="/html/homepage.html">Beranda</a></li>
+                  <li><a href="/html/gallery/gallery.html">Timeline</a></li>
+                  <li><a href="#">Portofolio Kelas</a></li>
+                  <li><a href="#">Kerja Siswa</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+  <div class="Section_top"></div>
+    <div class="content">
+  <div class="img-slider">
+    <div class="slide active">
+      <img src="/image/lomba17an/1.jpeg" alt="">
+      <div class="info">
+        <h2>Slide 01</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis reiciendis modi quidem vitae voluptatem optio ducimus et nulla consectetur nam. Perferendis voluptatum nemo numquam maxime mollitia iusto enim voluptas quia!</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="/image/lomba17an/2.jpeg" alt="">
+      <div class="info">
+        <h2>Slide 02</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis reiciendis modi quidem vitae voluptatem optio ducimus et nulla consectetur nam. Perferendis voluptatum nemo numquam maxime mollitia iusto enim voluptas quia!</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="/image/lomba17an/3.jpeg" alt="">
+      <div class="info">
+        <h2>Slide 03</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis reiciendis modi quidem vitae voluptatem optio ducimus et nulla consectetur nam. Perferendis voluptatum nemo numquam maxime mollitia iusto enim voluptas quia!</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="/image/lomba17an/4.jpeg" alt="">
+      <div class="info">
+        <h2>Slide 04</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis reiciendis modi quidem vitae voluptatem optio ducimus et nulla consectetur nam. Perferendis voluptatum nemo numquam maxime mollitia iusto enim voluptas quia!</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="/image/lomba17an/7.jpeg" alt="">
+      <div class="info">
+        <h2>Slide 05</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis reiciendis modi quidem vitae voluptatem optio ducimus et nulla consectetur nam. Perferendis voluptatum nemo numquam maxime mollitia iusto enim voluptas quia!</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="/image/lomba17an/8.jpeg" alt="">
+      <div class="info">
+        <h2>Slide 06</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis reiciendis modi quidem vitae voluptatem optio ducimus et nulla consectetur nam. Perferendis voluptatum nemo numquam maxime mollitia iusto enim voluptas quia!</p>
+      </div>
+    </div>
+    <div class="navigation">
+      <div class="btn active"></div>
+      <div class="btn"></div>
+      <div class="btn"></div>
+      <div class="btn"></div>
+      <div class="btn"></div>
+      <div class="btn"></div>
+    </div>
+  </div>
+</div>
+  <script type="text/javascript">
+    var slides = document.querySelectorAll('.slide');
+    var btns = document.querySelectorAll('.btn');
+    let currentSlide = 1;
+
+    var manualNav = function (manual){
+      slides.forEach((slide) =>{
+        slide.classList.remove('active');
+
+        btns.forEach((btn) =>{
+          btn.classList.remove('active');
+        });
+      });
+
+       slides[manual].classList.add('active');
+       btns[manual].classList.add('active');
+    }
+
+    btns.forEach((btn, i)=>{
+      btn.addEventListener("click",() =>{
+        manualNav(i);
+        currentSlide = 1;
+
+      });
+    });
+
+    var repeat = function(activeClass){
+      let active = document.getElementsByClassName('active');
+      let i = 1;
+
+      var repeater = () => {
+        setTimeout(function(){
+          [...active].forEach((activeSlide)=>{
+            activeSlide.classList.remove('active');
+          })
+
+          slides[i].classList.add('active');
+          btns[i].classList.add('active');
+          i++;
+
+          if(slides.length == i){
+            i = 0;
+          }
+          if(i >= slides.length){
+            return;
+          }
+          repeater();
+        },8000);
+      }
+      repeater();
+    }
+    repeat();
+  </script>
+</body>
+</html>
